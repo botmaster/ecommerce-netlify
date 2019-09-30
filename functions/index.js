@@ -1,5 +1,7 @@
 require("dotenv").config()
 
+console.log('process.env.STRIPE_SECRET_KEY => ', process.env.STRIPE_SECRET_KEY);
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
   headers = {
     "Access-Control-Allow-Origin": "*",
