@@ -16,7 +16,7 @@
         class="stripe-card"
         id="card"
         :class="{ complete }"
-        stripe="pk_test_5ThYi0UvX3xwoNdgxxxTxxrG"
+        stripe="pk"
         :options="stripeOptions"
         @change="complete = $event.complete"
       />
@@ -54,7 +54,10 @@ import { mapState } from "vuex";
 export default {
   components: { Card },
   computed: {
-    ...mapState(["cartUIStatus"])
+    ...mapState(["cartUIStatus"]),
+    pk() {
+      return process.env.STRIPE_PUBLISHABLE_KEY;
+    }
   },
   data() {
     return {
@@ -77,6 +80,9 @@ export default {
       this.complete = false;
       this.$store.commit("clearCartCount");
     }
+  },
+  mounted() {
+    //console.log(process.env.STRIPE_PUBLISHABLE_KEY);
   }
 };
 </script> 
