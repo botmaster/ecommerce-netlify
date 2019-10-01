@@ -5,7 +5,8 @@ import data from "~/static/storedata.json"
 export const state = () => ({
   cartUIStatus: "idle",
   storedata: data,
-  cart: []
+  cart: [],
+  ssr: null
 })
 
 export const getters = {
@@ -35,6 +36,9 @@ export const mutations = {
     itemfound
       ? (itemfound.quantity += payload.quantity)
       : state.cart.push(payload)
+  },
+  SET_RENDERER: (state, value) => {
+    state.ssr = value;
   }
 }
 

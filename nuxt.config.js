@@ -53,6 +53,9 @@ export default {
   modules: [
     '@nuxtjs/dotenv',
   ],
+  router: {
+    middleware: 'nuxtRenderer'
+  },
   /*
    ** Build configuration
    */

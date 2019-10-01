@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nuxt-renderer style="margin-top: 1rem; margin-left: 1rem;" :ssr="$store.state.ssr"></nuxt-renderer>
     <app-nav />
     <main>
       <nuxt />
@@ -11,11 +12,13 @@
 <script>
 import AppFooter from "~/components/AppFooter.vue";
 import AppNav from "~/components/AppNav.vue";
+import NuxtRenderer from '@/components/NuxtRenderer.vue';
 
 export default {
   components: {
     AppFooter,
-    AppNav
+    AppNav,
+    NuxtRenderer
   }
 };
 </script>
